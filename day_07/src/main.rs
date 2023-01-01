@@ -138,7 +138,7 @@ fn solve2(dir: &Dir) -> usize {
 
     let current = total - dir.total;
 
-    let res = traversal::dft_post(dir, |d: &Dir| d.subdirs.iter().map(|(_, v)| v))
+    let res = traversal::dft_post(dir, |d: &Dir| d.subdirs.values())
         .map(|(_, d)| d.total)
         .filter(|x| current + x > needed)
         .min()
